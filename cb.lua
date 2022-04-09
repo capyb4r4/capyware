@@ -4700,7 +4700,7 @@ repeat RunService.RenderStepped:Wait() until game:IsLoaded()
       end
 
       RunService.RenderStepped:Wait()
-      local gui = library:New("capybara.cc")
+      local gui = library:New("capyware")
       local legit = gui:Tab("legit")
       local rage = gui:Tab("rage")
       local aatab = gui:Tab("anti-aim")
