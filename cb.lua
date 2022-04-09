@@ -4356,6 +4356,55 @@ repeat RunService.RenderStepped:Wait() until game:IsLoaded()
   SampleLabel.TextTransparency = 1.000
   SampleLabel.TextXAlignment = Enum.TextXAlignment.Right
 
+local griefsector = grief:Sector("griefing","Left")
+griefsector:Element("Button","set health to 1hp",{},function()
+	game.ReplicatedStorage.Events.FallDamage:FireServer(LocalPlayer.Character.Humanoid.Health-1)
+end)
+TeamDamage = false
+griefsector:Element("ToggleKeybind","show team damage",{},function(tbl)
+	TeamDamage = tbl.Toggle
+	RifthookTK.Enabled = TeamDamage
+	spawn(function()
+		while TeamDamage do
+			pcall(function()
+				local UIListLayout = Instance.new("UIListLayout")
+				UIListLayout.Parent = Frame
+				UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+					if UIListLayout.AbsoluteContentSize.Y == 0 then
+						Main.Size = UDim2.new(0,200,0,40)
+					else
+						Main.Size = UDim2.new(0,200,0,UIListLayout.AbsoluteContentSize.Y+34)
+					end
+				end)
+				wait()
+				for i,v in pairs(Frame:GetChildren()) do
+					v:Destroy()
+				end
+				for i,v in pairs(game.Players:GetChildren()) do
+					if v.Team == LocalPlayer.Team then
+						local Label = Instance.new("TextLabel")
+						Label.Name = v.Name
+						Label.BackgroundTransparency = 1
+						Label.Size = UDim2.new(1, 0, 0, 18)
+						if v == LocalPlayer then
+							Label.Text = "You | Kills: "..tostring(math.floor(v.TeamKills.value)).." | Damage: "..tostring(math.floor(v.TeamDamage.value))
+							Label.TextColor3 = Color3.new(0.3, 1, 0.3)
+						else
+							Label.Text = v.Name.." | Kills: "..tostring(math.floor(v.TeamKills.value)).." | Damage: "..tostring(math.floor(v.TeamDamage.value))
+							Label.TextColor3 = Color3.new(1, 1, 1)
+						end
+						Label.Parent = Frame
+						Label.TextXAlignment = "Left"
+						Label.TextStrokeTransparency = 0
+					end
+				end
+			end)
+		end
+	end)
+end)
+
+
+
   local function CreateHitElement(text,col)
     spawn(function()
     local Label = SampleLabel:Clone()
@@ -4713,7 +4762,7 @@ repeat RunService.RenderStepped:Wait() until game:IsLoaded()
       local visuals = gui:Tab("visuals")
       local misc = gui:Tab("misc")
       local skins = gui:Tab("skins")
-
+      local grief = gui:Tab("griefing")
 
       getgenv().api = {}
       api.newtab = function(name)
