@@ -4266,14 +4266,14 @@ repeat RunService.RenderStepped:Wait() until game:IsLoaded()
       SkyboxRt = "rbxassetid://3822390968",
       SkyboxUp = "rbxassetid://3822392413",
     },
-    ["vaporwave"] = {
-      SkyboxLf = "rbxassetid://1417494402",
-      SkyboxBk = "rbxassetid://1417494030",
-      SkyboxDn = "rbxassetid://1417494146",
-      SkyboxFt = "rbxassetid://1417494253",
-      SkyboxLf = "rbxassetid://1417494402",
-      SkyboxRt = "rbxassetid://1417494499",
-      SkyboxUp = "rbxassetid://1417494643",
+    ["capybara"] = {
+      SkyboxLf = "rbxassetid://7527755529",
+      SkyboxBk = "rbxassetid://7527755529",
+      SkyboxDn = "rbxassetid://7527755529",
+      SkyboxFt = "rbxassetid://7527755529",
+      SkyboxLf = "rbxassetid://7527755529",
+      SkyboxRt = "rbxassetid://7527755529",
+      SkyboxUp = "rbxassetid://9304800095",
     },
     ["clouds"] = {
       SkyboxLf = "rbxassetid://570557620",
@@ -4700,7 +4700,7 @@ repeat RunService.RenderStepped:Wait() until game:IsLoaded()
       end
 
       RunService.RenderStepped:Wait()
-      local gui = library:New("capyware")
+      local gui = library:New("capybara.cc")
       local legit = gui:Tab("legit")
       local rage = gui:Tab("rage")
       local aatab = gui:Tab("anti-aim")
@@ -5426,9 +5426,9 @@ end
 end)
 world:Element("ToggleColor", "impacts", {default = {Color = COL3RGB(255, 255, 255)}})
 world:Element("ToggleColor", "hit chams", {default = {Color = COL3RGB(255, 255, 255)}})
-world:Element("Dropdown", "hitsound", {options = {"none", "moan", "moan2", "moan3", "moan4", "skeet", "neverlose", "rust", "bag", "baimware", "bruh", "MC \"ouh!\"" , "ding"}})
+world:Element("Dropdown", "hitsound", {options = {"none", "capy", "rust", "jojos", "moan4", "skeet", "neverlose", "rust", "bag", "baimware", "bruh", "MC \"ouh!\"" , "wow"}})
 world:Element("Slider", "sound volume", {min = 1, max = 5, default = 3})
-world:Element("Dropdown", "skybox", {options = {"none", "nebula", "minecraft", "vaporwave", "clouds"}}, function(tbl)
+world:Element("Dropdown", "skybox", {options = {"none", "nebula", "minecraft", "capybara", "clouds"}}, function(tbl)
 local sky = tbl.Dropdown
 if sky ~= "none" then
 if Lighting:FindFirstChildOfClass("Sky") then Lighting:FindFirstChildOfClass("Sky"):Destroy() end
@@ -7103,7 +7103,7 @@ end)()
 if values.visuals.world.hitsound.Dropdown == "none" then return end
 local sound = INST("Sound")
 sound.Parent = game:GetService("SoundService")
-sound.SoundId = values.visuals.world.hitsound.Dropdown == "skeet" and "rbxassetid://5447626464" or values.visuals.world.hitsound.Dropdown == "neverlose" and "rbxassetid://5043539486" or values.visuals.world.hitsound.Dropdown == "rust" and "rbxassetid://5043539486" or values.visuals.world.hitsound.Dropdown == "bag" and "rbxassetid://364942410" or values.visuals.world.hitsound.Dropdown == "baimware" and "rbxassetid://4275842574" or values.visuals.world.hitsound.Dropdown == "bruh" and "rbxassetid://535690488" or values.visuals.world.hitsound.Dropdown == "MC \"ouh!\"" and "rbxassetid://6361963422" or values.visuals.world.hitsound.Dropdown == "moan" and "rbxassetid://2440889605" or values.visuals.world.hitsound.Dropdown == "moan2" and "rbxassetid://2440891382" or values.visuals.world.hitsound.Dropdown == "moan3" and "rbxassetid://2440889869" or values.visuals.world.hitsound.Dropdown == "ding" and "rbxassetid://8322227470"
+sound.SoundId = values.visuals.world.hitsound.Dropdown == "skeet" and "rbxassetid://5447626464" or values.visuals.world.hitsound.Dropdown == "neverlose" and "rbxassetid://5043539486" or values.visuals.world.hitsound.Dropdown == "rust" and "rbxassetid://5043539486" or values.visuals.world.hitsound.Dropdown == "bag" and "rbxassetid://364942410" or values.visuals.world.hitsound.Dropdown == "baimware" and "rbxassetid://4275842574" or values.visuals.world.hitsound.Dropdown == "bruh" and "rbxassetid://535690488" or values.visuals.world.hitsound.Dropdown == "MC \"ouh!\"" and "rbxassetid://6361963422" or values.visuals.world.hitsound.Dropdown == "capy" and "rbxassetid://8211697806" or values.visuals.world.hitsound.Dropdown == "rust" and "rbxassetid://5043539486" or values.visuals.world.hitsound.Dropdown == "jojos" and "rbxassetid://2216980208" or values.visuals.world.hitsound.Dropdown == "wow" and "rbxassetid://5906693158"
 sound.Volume = values.visuals.world["sound volume"].Slider
 sound.PlayOnRemove = true
 sound:Destroy()
