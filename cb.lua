@@ -9,8 +9,8 @@ local ConfigLoad = Signal.new("ConfigLoad")
 local txt = game:GetService("TextService")
 local TweenService = game:GetService("TweenService")
 function library:Tween(...) TweenService:Create(...):Play() end
-  local cfglocation = "saladcfg/"
-  makefolder("saladcfg")
+  local cfglocation = "capycfg/"
+  makefolder("capycfg")
 
   -- caching
   local Vec2 = Vector2.new
@@ -4700,7 +4700,7 @@ repeat RunService.RenderStepped:Wait() until game:IsLoaded()
       end
 
       RunService.RenderStepped:Wait()
-      local gui = library:New("capybara.cc")
+      local gui = library:New("capyware")
       local legit = gui:Tab("legit")
       local rage = gui:Tab("rage")
       local aatab = gui:Tab("anti-aim")
