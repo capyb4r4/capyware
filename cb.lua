@@ -1,4 +1,10 @@
-
+wait(1.2)
+game.StarterGui:SetCore("SendNotification", {
+Title = "CAPYWARE.RR"; -- 
+Text = "capyware injected"; -- 
+Icon = "rbxassetid://8809298832"; -- t
+Duration = 5; -- 
+})
 
 getgenv().values = {}
 local library = {}
